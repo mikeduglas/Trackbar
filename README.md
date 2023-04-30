@@ -68,4 +68,4 @@ sQuality                        STRING(6), AUTO
 
 ### Price
 - 120 USD via ClarionShop 
-- 106 USD via https://solar-staff.com)
+- 106 USD via https://solar-staff.com
