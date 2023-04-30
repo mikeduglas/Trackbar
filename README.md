@@ -11,7 +11,8 @@ I decided to mimic this control in Clarion.
 ![Screenshot2](https://github.com/mikeduglas/trackbar/blob/master/screenshots/trackbar_demo2.jpg?raw=true)  
 
 ### Features
-The control supports both horizontal and vertical orientations, each orientation supports top/left, center and bottom/right alignments.
+- The control supports both horizontal and vertical orientations, each orientation supports top/left, center and bottom/right alignments.
+- Mouse wheel is supported.
 
 ### Demo app
 You can see how new TrackBar control works running demo\Trackbar_demo.exe.  
