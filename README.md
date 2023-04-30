@@ -1,9 +1,7 @@
-# Trackbar control
+# TrackBar control
 
 ### Overview
-
-
-Windows application "Photos"
+Modern Windows applications use cute TrackBar control, below is a screenshot from "Photos" application:
 
 ![Photos resize dialog](https://github.com/mikeduglas/trackbar/blob/master/screenshots/Photos_Resize.jpg?raw=true)  
 
