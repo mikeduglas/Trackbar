@@ -5,12 +5,18 @@ Modern Windows applications use cute TrackBar control, below is a screenshot fro
 
 ![Photos resize dialog](https://github.com/mikeduglas/trackbar/blob/master/screenshots/Photos_Resize.jpg?raw=true)  
 
-### Code
+I decided to mimic this control in Clarion:
+
+### Demo
+You can see how new TrackBar control works running demo\Trackbar_demo.exe.
+
+![Photos resize dialog](https://github.com/mikeduglas/trackbar/blob/master/screenshots/trackbar_demo.png?raw=true)  
+
+The code is quite primitive:
+
 ```
   PROGRAM
-
   INCLUDE('trackbar.inc'), ONCE
-
   MAP
     INCLUDE('printf.inc'), ONCE
   END
@@ -24,7 +30,6 @@ Window                        WINDOW('Trackbar demo'),AT(,,260,100),CENTER,GRAY,
 tbQuality                     CLASS(TTrackBar)
 OnNewSelection                  PROCEDURE(), DERIVED, PROTECTED
                               END
-
   CODE
   OPEN(Window)
   
@@ -34,7 +39,6 @@ OnNewSelection                  PROCEDURE(), DERIVED, PROTECTED
   
   ACCEPT
   END
-  
   
 tbQuality.OnNewSelection      PROCEDURE()
 sQuality                        STRING(6), AUTO
@@ -46,24 +50,18 @@ sQuality                        STRING(6), AUTO
   ELSE
     sQuality = 'High'
   END
-  
   ?lblQuality{PROP:Text} = printf('Quality: %i%% (%s)', SELF.curValue, sQuality)
 ```
-
-### Demo project
-![Photos resize dialog](https://github.com/mikeduglas/trackbar/blob/master/screenshots/trackbar_demo.png?raw=true)  
 
 ### Requirements
 - Clarion versions: C6.3 and higher.
 - Template chains: ABC, Clarion.
 - Multi dll apps supported.
-- [winapi](https://github.com/mikeduglas/winapi)
-- [gdiplus](https://github.com/mikeduglas/gdiplus)
-- [printf](https://github.com/mikeduglas/printf)
 
 ### Contacts
 - <mikeduglas@yandex.ru>
 - <mikeduglas66@gmail.com>
 
 ### Price
-100 USD
+- 120 USD via ClarionShop 
+- 106 USD via https://solar-staff.com)
