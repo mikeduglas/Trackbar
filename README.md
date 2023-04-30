@@ -10,7 +10,8 @@ I decided to mimic this control in Clarion:
 ### Demo
 You can see how new TrackBar control works running demo\Trackbar_demo.exe.
 
-![Photos resize dialog](https://github.com/mikeduglas/trackbar/blob/master/screenshots/trackbar_demo.png?raw=true)  
+![Screenshot1](https://github.com/mikeduglas/trackbar/blob/master/screenshots/trackbar_demo1.jpg?raw=true)  
+![Screenshot2](https://github.com/mikeduglas/trackbar/blob/master/screenshots/trackbar_demo2.jpg?raw=true)  
 
 The code is quite primitive:
 
@@ -41,16 +42,18 @@ OnNewSelection                  PROCEDURE(), DERIVED, PROTECTED
   END
   
 tbQuality.OnNewSelection      PROCEDURE()
+intValue                        LONG, AUTO
 sQuality                        STRING(6), AUTO
   CODE
-  IF SELF.curValue < 50
+  intValue = ROUND(SELF.curValue, 1)
+  IF intValue < 50
     sQuality = 'Low'
-  ELSIF SELF.curValue < 80
+  ELSIF intValue < 80
     sQuality = 'Medium'
   ELSE
     sQuality = 'High'
   END
-  ?lblQuality{PROP:Text} = printf('Quality: %i%% (%s)', SELF.curValue, sQuality)
+  ?lblQuality{PROP:Text} = printf('Quality: %i%% (%s)', intValue, sQuality)lQuality{PROP:Text} = printf('Quality: %i%% (%s)', SELF.curValue, sQuality)
 ```
 
 ### Requirements
