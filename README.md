@@ -5,14 +5,16 @@ Modern Windows applications use cute TrackBar control, below is a screenshot fro
 
 ![Photos resize dialog](https://github.com/mikeduglas/trackbar/blob/master/screenshots/Photos_Resize.jpg?raw=true)  
 
-I decided to mimic this control in Clarion:
-
-### Demo
-You can see how new TrackBar control works running demo\Trackbar_demo.exe.
+I decided to mimic this control in Clarion.
 
 ![Screenshot1](https://github.com/mikeduglas/trackbar/blob/master/screenshots/trackbar_demo1.jpg?raw=true)  
 ![Screenshot2](https://github.com/mikeduglas/trackbar/blob/master/screenshots/trackbar_demo2.jpg?raw=true)  
 
+### Features
+The control supports both horizontal and vertical orientations, each orientation supports top/left, center and bottom/right alignments.
+
+### Demo app
+You can see how new TrackBar control works running demo\Trackbar_demo.exe.  
 The code is quite primitive:
 
 ```
@@ -29,7 +31,7 @@ Window                        WINDOW('Trackbar demo'),AT(,,260,100),CENTER,GRAY,
                               END
 
 tbQuality                     CLASS(TTrackBar)
-OnNewSelection                  PROCEDURE(), DERIVED, PROTECTED
+OnNewSelection                  PROCEDURE(LONG pValue), DERIVED, PROTECTED
                               END
   CODE
   OPEN(Window)
@@ -41,19 +43,17 @@ OnNewSelection                  PROCEDURE(), DERIVED, PROTECTED
   ACCEPT
   END
   
-tbQuality.OnNewSelection      PROCEDURE()
-intValue                        LONG, AUTO
+tbQuality.OnNewSelection      PROCEDURE(LONG pValue)
 sQuality                        STRING(6), AUTO
   CODE
-  intValue = ROUND(SELF.curValue, 1)
-  IF intValue < 50
+  IF pValue < 50
     sQuality = 'Low'
-  ELSIF intValue < 80
+  ELSIF pValue < 80
     sQuality = 'Medium'
   ELSE
     sQuality = 'High'
   END
-  ?lblQuality{PROP:Text} = printf('Quality: %i%% (%s)', intValue, sQuality)lQuality{PROP:Text} = printf('Quality: %i%% (%s)', SELF.curValue, sQuality)
+  ?lblQuality{PROP:Text} = printf('Quality: %i%% (%s)', pValue, sQuality)
 ```
 
 ### Requirements
