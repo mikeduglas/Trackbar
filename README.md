@@ -49,7 +49,8 @@ sQuality                        STRING(6), AUTO
     sQuality = 'High'
   END
   
-  ?lblQuality{PROP:Text} = printf('Quality: %i%% (%s)', SELF.curValue, sQuality)```
+  ?lblQuality{PROP:Text} = printf('Quality: %i%% (%s)', SELF.curValue, sQuality)
+```
 
 ### Demo project
 ![Photos resize dialog](https://github.com/mikeduglas/trackbar/blob/master/screenshots/trackbar_demo.png?raw=true)  
