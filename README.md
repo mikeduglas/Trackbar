@@ -13,6 +13,9 @@ I decided to mimic this control in Clarion.
 ### Features
 - The control supports both horizontal and vertical orientations, each orientation supports top/left, center and bottom/right alignments.
 - Mouse wheel is supported.
+- keyboard is supported (arrow keys, home key, end key).
+- TAB control order is supported.
+- 2 types of step values are supported: a step and a small step. When SHIFT key is pressed, arrow keys and mouse wheel change the value by a small step.
 
 ### Demo app
 You can see how new TrackBar control works running demo\Trackbar_demo.exe.  
@@ -26,7 +29,7 @@ The code is quite primitive:
   END
 
 Window                        WINDOW('Trackbar demo'),AT(,,260,100),CENTER,GRAY,SYSTEM,FONT('Segoe UI',9)
-                                REGION,AT(16,26,186,22),USE(?rgnQuality)
+                                REGION,AT(16,26,186,32),USE(?rgnQuality)
                                 PROMPT('Prompt1'),AT(16,14),USE(?lblQuality)
                                 BUTTON('Close'),AT(197,76,47),USE(?btnClose),STD(STD:Close)
                               END
@@ -38,9 +41,10 @@ OnNewSelection                  PROCEDURE(LONG pValue), DERIVED, PROTECTED
   OPEN(Window)
   
   tbQuality.Init(?rgnQuality)
-  tbQuality.SetRange(10, 100)
+  tbQuality.SetRange(10, 100, 5, 1)  !- step: 5; small step: 1
   tbQuality.SetValue(50)
-  
+  tbQuality.SetAlignment(TrackbarAlignmentCenter)
+
   ACCEPT
   END
   
