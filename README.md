@@ -16,6 +16,7 @@ I decided to mimic this control in Clarion.
 - keyboard is supported (arrow keys, home key, end key).
 - TAB control order is supported.
 - 2 types of step values are supported: a step and a small step. When SHIFT key is pressed, arrow keys and mouse wheel change the value by a small step.
+- Immediate mode: when true (by default), OnNewSelection event is fired whenever a user changes the value.
 
 ### Demo app
 You can see how new TrackBar control works running demo\Trackbar_demo.exe.  
